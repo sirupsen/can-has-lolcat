@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "can-has-lolcat"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "sirup@sirupsen.dk"
+    gem.summary = %Q{can haz random lolcat?}
+    gem.description = %Q{Fetches a random lolcat, and returns the appropriate output format.}
+    gem.email = "sirup@sirupsen.com"
     gem.homepage = "http://github.com/Sirupsen/can-has-lolcat"
-    gem.authors = ["Simon"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.authors = ["Sirupsen"]
+    gem.add_development_dependency "shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
