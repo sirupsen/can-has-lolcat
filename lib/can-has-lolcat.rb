@@ -20,6 +20,8 @@ module Lolcat
       end
     end
 
+    alias_method :can_haz, :can_has
+
     def get_direct_url_of(html)
       html.match(LOLCAT)[0][1..-1]
     end

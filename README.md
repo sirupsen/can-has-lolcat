@@ -16,7 +16,7 @@ For extra awesome, you can specify an output format:
     Lolcat.can_has(:url)
     => "http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg"
 
-Yes, `Lolcat.can_has(:url)` is exactly the same as `Lolcat.can_has` but more cat-chy!
+Yes, `Lolcat.can_has(:url)` is exactly the same as `Lolcat.can_has` but more cat-chy! And well yes of course, it doesn't matter if you use `#can_has` or `#can_haz` or both.
 
 Made for [Whyday 2010](http://whyday.org/). Because it's craaazy. I've implemented this in an admin interface somewhere, but sssh!
 
