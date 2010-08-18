@@ -20,6 +20,10 @@ Yes, `Lolcat.can_has(:url)` is exactly the same as `Lolcat.can_has` but more cat
 
 Made for [Whyday 2010](http://whyday.org/). Because it's craaazy. I've implemented this in an admin interface somewhere, but sssh!
 
+## Installation
+
+    [sudo] gem install can-has-lolcat
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
