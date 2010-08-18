@@ -1,4 +1,4 @@
-= can-has-lolcat
+# can-has-lolcat
 
 can haz random `lolcat`? Well of course you can:
 
@@ -10,8 +10,10 @@ For extra awesome, you can specify an output format:
     Lolcat.can_has(:html)
     => "<img src='http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg' alt='' />"
 
+
     Lolcat.can_has(:bbcode)
     => "[img]http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg[/img]"
+
 
     Lolcat.can_has(:url)
     => "http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg"
@@ -20,7 +22,7 @@ Yes, `Lolcat.can_has(:url)` is exactly the same as `Lolcat.can_has` but more cat
 
 Made for [Whyday 2010](http://whyday.org/). Because it's craaazy. I've implemented this in an admin interface somewhere, but sssh!
 
-== Note on Patches/Pull Requests
+## Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -30,6 +32,6 @@ Made for [Whyday 2010](http://whyday.org/). Because it's craaazy. I've implement
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2010 Simon. See LICENSE for details.
