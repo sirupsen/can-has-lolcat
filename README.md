@@ -24,6 +24,8 @@ Made for [Whyday 2010](http://whyday.org/). Because it's craaazy. I've implement
 
     [sudo] gem install can-has-lolcat
 
+It has no capendencies.
+
 ## Note on Patches/Pull Requests
  
 * Fork the project.
