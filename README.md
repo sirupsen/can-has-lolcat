@@ -10,10 +10,8 @@ For extra awesome, you can specify an output format:
     Lolcat.can_has(:html)
     => "<img src='http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg' alt='' />"
 
-
     Lolcat.can_has(:bbcode)
     => "[img]http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg[/img]"
-
 
     Lolcat.can_has(:url)
     => "http://icanhascheezburger.files.wordpress.com/2010/08/1c6fbea0-4735-49c5-8247-5f618b66c219.jpg"
