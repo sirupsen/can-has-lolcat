@@ -29,7 +29,16 @@ module Lolcat
         domain = ""
       end
 
-      open(PROTOCOL + domain + RANDOM).read
+      # The site randomly returns a video based page at a
+      # rate that anecdotally appears to be 15-20% of the
+      # time. Detect those links from the title and go
+      # back until we get a normal image page.
+      html = ""
+      begin
+        html = open(PROTOCOL + domain + RANDOM).read
+      end while(html.match(/<title>\s+(Video|VIDEO):/))
+
+      html
     end
 
     def extract_image_url(animal, html)
@@ -41,11 +50,23 @@ module Lolcat
       end
 
       regex = /"http:\/\/#{domain}\.files\.wordpress\.com\/[^"]+/
-      html.match(regex)[0][1..-1]
+
+      m = html.match(regex)
+
+      m.nil? ? nil : m[0][1..-1]
     end
 
     def random_from_internetz(animal)
-      extract_image_url(animal, random_html(animal))
+      url = nil
+
+      # We shouldn't ever get nil back from random_html with the
+      # check for videos in place, but the check is kind of hacky
+      # so as a extra precaution we'll check for nil here.
+      begin
+        url = extract_image_url(animal, random_html(animal))
+      end while url.nil?
+
+      url
     end
   end
 end
