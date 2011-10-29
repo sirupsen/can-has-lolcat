@@ -1,33 +1,51 @@
 require 'open-uri'
 
 module Lolcat
-  RANDOM  = "http://icanhascheezburger.com/?random"
-  LOLCAT = /"http:\/\/icanhascheezburger\.files\.wordpress\.com\/[^"]+/
+  PROTOCOL = "http://"
+  RANDOM   = "icanhascheezburger.com/?random"
 
   class << self
-    def can_has(format=nil)
-      kitty = Lolcat.get_direct_url_of(random_from_internetz)
+    def can_has(format=:url, animal=:cat)
+
+      lol = Lolcat.random_from_internetz(animal)
 
       case format
       when :html
-        "<img src='#{kitty}' alt='' />"
+        "<img src='#{lol}' alt='' />"
       when :bbcode
-        "[img]#{kitty}[/img]"
-      when :url
-        kitty
+        "[img]#{lol}[/img]"
       else
-        kitty
+        lol
       end
     end
 
     alias_method :can_haz, :can_has
 
-    def get_direct_url_of(html)
-      html.match(LOLCAT)[0][1..-1]
+    def random_html(animal)
+      # do they want a kitteh or a puppeh?
+      if animal == :dog
+        domain = "dogs."
+      else
+        domain = ""
+      end
+
+      open(PROTOCOL + domain + RANDOM).read
     end
 
-    def random_from_internetz
-      open(RANDOM).read
+    def extract_image_url(animal, html)
+      # is this a kitteh or a puppeh?
+      if animal == :dog
+        domain = "ihasahotdog"
+      else
+        domain = "icanhascheezburger"
+      end
+
+      regex = /"http:\/\/#{domain}\.files\.wordpress\.com\/[^"]+/
+      html.match(regex)[0][1..-1]
+    end
+
+    def random_from_internetz(animal)
+      extract_image_url(animal, random_html(animal))
     end
   end
 end
