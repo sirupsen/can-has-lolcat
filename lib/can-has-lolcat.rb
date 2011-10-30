@@ -21,13 +21,14 @@ module Lolcat
 
     alias_method :can_haz, :can_has
 
+    # Isolated for easy stubbing during testing
+    def get_html(url)
+      open(url).read
+    end
+
     def random_html(animal)
       # do they want a kitteh or a puppeh?
-      if animal == :dog
-        domain = "dogs."
-      else
-        domain = ""
-      end
+      domain = (animal == :dog) ? "dogs." : ""
 
       # The site randomly returns a video based page at a
       # rate that anecdotally appears to be 15-20% of the
@@ -35,7 +36,7 @@ module Lolcat
       # back until we get a normal image page.
       html = ""
       begin
-        html = open(PROTOCOL + domain + RANDOM).read
+        html = get_html(PROTOCOL + domain + RANDOM)
       end while(html.match(/<title>\s+(Video|VIDEO):/))
 
       html
@@ -43,17 +44,12 @@ module Lolcat
 
     def extract_image_url(animal, html)
       # is this a kitteh or a puppeh?
-      if animal == :dog
-        domain = "ihasahotdog"
-      else
-        domain = "icanhascheezburger"
-      end
+      domain = (animal == :dog) ?  "ihasahotdog" : "icanhascheezburger"
 
-      regex = /"http:\/\/#{domain}\.files\.wordpress\.com\/[^"]+/
+      # Find the image URL in the html
+      m = html.match(/"http:\/\/#{domain}\.files\.wordpress\.com\/[^"]+/)
 
-      m = html.match(regex)
-
-      m.nil? ? nil : m[0][1..-1]
+      m ? m[0][1..-1] : nil
     end
 
     def random_from_internetz(animal)
