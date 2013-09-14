@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Sirupsen"]
-  s.date = "2011-10-29"
+  s.date = "2013-09-14"
   s.description = "Fetches a random lolcat, and returns the appropriate output format."
   s.email = "sirup@sirupsen.com"
   s.extra_rdoc_files = [
@@ -22,18 +22,21 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "can-has-lolcat.gemspec",
     "lib/can-has-lolcat.rb",
     "test/fixtures/lolcat.html",
+    "test/fixtures/loldog.html",
+    "test/fixtures/lolvideo.html",
     "test/helper.rb",
     "test/test_can-has-lolcat.rb"
   ]
   s.homepage = "http://github.com/Sirupsen/can-has-lolcat"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "2.0.3"
   s.summary = "can haz random lolcat?"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<shoulda>, [">= 0"])
